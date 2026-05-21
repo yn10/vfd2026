@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Vernacularly Fastened Door</title>
+    <style>
+        body, html {
+            background-image: url("../images/wallpaper.png");
+            background-size: 10%;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../images/vfd.png" alt="VFD logo" style="max-width: 200px; height: auto">
+        <br>
+        <input type="password" id="password" placeholder="Enter password">
+        <br>
+        <button id="submitButton" onclick="checkPassword()">Submit</button>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            var passwordField = document.getElementById("password");
+
+            if (password === "vfd") {
+                window.location.href = "intel.html";
+            } else if (password === "quiet") {
+                window.location.href = "quiet.html";
+            } else if (password === "fire") {
+                window.location.href = "fire.html";
+            } else {
+                passwordField.classList.add('error');
+                setTimeout(function() {
+                    passwordField.classList.remove('error');
+                }, 500);
+            }
+        }
+
+        document.getElementById("password").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        });
+    </script>
+
+    <div class="footer">
+      <div class="footer-box">
+        <a href="../fr/index.html">
+          <div>FR</div>
+          <span class="tooltip">Français</span>
+        </a>
+      </div>
+    </div>  
+
+</body>
+</html>
